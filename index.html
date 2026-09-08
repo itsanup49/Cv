@@ -6,6 +6,7 @@
     <title>Anup Neupane - CV</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     
     <style>
         :root {
@@ -24,7 +25,7 @@
         }
 
         body {
-            /* Vibrant Mesh Gradient to show off the glass effect */
+            /* Vibrant Mesh Gradient */
             background: radial-gradient(at 0% 0%, #e0f2fe 0, transparent 50%), 
                         radial-gradient(at 50% 0%, #fae8ff 0, transparent 50%), 
                         radial-gradient(at 100% 0%, #fef3c7 0, transparent 50%), 
@@ -40,11 +41,9 @@
         .wrapper {
             max-width: 1000px;
             width: 100%;
-            display: grid;
-            grid-template-columns: 320px 1fr;
-            grid-template-rows: auto auto;
-            align-items: start;
+            display: flex;
             gap: 25px;
+            align-items: flex-start;
         }
 
         /* Glass Panel Base Styling */
@@ -59,25 +58,10 @@
             height: fit-content;
         }
 
-        /* Header Panel (Name) */
-        .header-panel {
-            grid-column: 2;
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-            padding: 40px 50px;
-        }
-
-        .header-panel h1 {
-            font-size: 3rem;
-            font-weight: 500;
-            color: var(--text-heading);
-            letter-spacing: -1px;
-        }
-
         /* Sidebar Panel */
         .sidebar {
-            grid-row: 1 / span 2;
+            width: 320px;
+            flex-shrink: 0;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -138,11 +122,30 @@
             gap: 10px;
         }
 
-        /* Main Content Panel */
-        .main-content {
-            grid-column: 2;
+        /* Right Side Content Column */
+        .right-column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
         }
 
+        /* Header Panel (Name) */
+        .header-panel {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 40px 50px;
+        }
+
+        .header-panel h1 {
+            font-size: 3rem;
+            font-weight: 500;
+            color: var(--text-heading);
+            letter-spacing: -1px;
+        }
+
+        /* Main Content Panel */
         .content-block { margin-bottom: 40px; }
         .content-block:last-child { margin-bottom: 0; }
         .content-block h2 {
@@ -173,30 +176,50 @@
             border-radius: 50%;
         }
 
+        /* Download Button Styling */
+        .download-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 12px 24px;
+            background: #1e293b;
+            color: #ffffff;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: all 0.2s ease;
+            z-index: 9999;
+        }
+        .download-btn:hover {
+            transform: translateY(-2px);
+            background: #334155;
+        }
+
         /* Responsive Mobile Layout */
         @media (max-width: 850px) {
             .wrapper {
-                grid-template-columns: 1fr;
-                grid-template-rows: auto;
+                flex-direction: column;
             }
-            .sidebar, .header-panel, .main-content {
-                grid-column: 1;
-                grid-row: auto;
+            .sidebar, .right-column {
+                width: 100%;
             }
             .header-panel {
-                order: 1;
                 text-align: center;
                 justify-content: center;
             }
-            .sidebar { order: 2; }
-            .main-content { order: 3; }
             .header-panel h1 { font-size: 2.2rem; }
         }
     </style>
 </head>
 <body>
 
-    <div class="wrapper">
+    <button class="download-btn" onclick="downloadCVImage()">
+        <i class="fa-solid fa-download"></i> Download as PNG
+    </button>
+
+    <div class="wrapper" id="cv-container">
         <aside class="glass-panel sidebar">
             <div class="profile-container">
                 <img src="profile.jpg" alt="Anup Neupane" class="profile-img">
@@ -241,39 +264,61 @@
             </div>
         </aside>
 
-        <header class="glass-panel header-panel">
-            <h1>Anup Neupane</h1>
-        </header>
+        <div class="right-column">
+            <header class="glass-panel header-panel">
+                <h1>Anup Neupane</h1>
+            </header>
 
-        <main class="glass-panel main-content">
-            <section class="content-block">
-                <h2>About Me</h2>
-                <p>
-                    I am a curious and tech-savvy individual who loves to take on new challenges. I love learning by doing and finding creative ways to get things done, whether it's building an online community or figuring out a new digital tool. I'm always on the lookout for new things to learn and I love exploring the intersection of technology and creativity.
-                </p>
-            </section>
+            <main class="glass-panel main-content">
+                <section class="content-block">
+                    <h2>About Me</h2>
+                    <p>
+                        I am a curious and tech-savvy individual who loves to take on new challenges. I love learning by doing and finding creative ways to get things done, whether it's building an online community or figuring out a new digital tool. I'm always on the lookout for new things to learn and I love exploring the intersection of technology and creativity.
+                    </p>
+                </section>
 
-            <section class="content-block">
-                <h2>Work Experience</h2>
-                
-                <div class="experience-item">
-                    <h3>Data Research & Entry (Paid)</h3>
-                    <p>I Researched different companies and their details from the internet and collected their details such as name, location, and phone number services they provide then entered the data accurately into provided spreadsheets. Completed multiple projects and received payment upon delivery.</p>
-                </div>
+                <section class="content-block">
+                    <h2>Work Experience</h2>
+                    
+                    <div class="experience-item">
+                        <h3>Data Research & Entry (Paid)</h3>
+                        <p>I Researched different companies and their details from the internet and collected their details such as name, location, and phone number services they provide then entered the data accurately into provided spreadsheets. Completed multiple projects and received payment upon delivery.</p>
+                    </div>
 
-                <div class="experience-item">
-                    <h3>Facebook Page (4.8k Followers)</h3>
-                    <p>I grew a Facebook page to 4.8k followers entirely through organic reach. Created and posted video edits and song edits consistently, handling all content creation without running any paid ads.</p>
-                </div>
+                    <div class="experience-item">
+                        <h3>Facebook Page (4.8k Followers)</h3>
+                        <p>I grew a Facebook page to 4.8k followers entirely through organic reach. Created and posted video edits and song edits consistently, handling all content creation without running any paid ads.</p>
+                    </div>
 
-                <div class="experience-item">
-                    <h3>Junior LiDAR Data Analyst - Geovest (Paid)</h3>
-                    <p>I worked at Geovest using Spatix software to classify LiDAR mapping data, including ground terrain, structures, vegetation, and high-tension towers. Delivered project blocks on deadline with minimal errors under project manager and seniors supervision.</p>
-                </div>
-            </section>
-        </main>
+                    <div class="experience-item">
+                        <h3>Junior LiDAR Data Analyst - Geovest (Paid)</h3>
+                        <p>I worked at Geovest using Spatix software to classify LiDAR mapping data, including ground terrain, structures, vegetation, and high-tension towers. Delivered project blocks on deadline with minimal errors under project manager and seniors supervision.</p>
+                    </div>
+                </section>
+            </main>
+        </div>
     </div>
 
+    <script>
+        function downloadCVImage() {
+            const element = document.getElementById('cv-container');
+            const button = document.querySelector('.download-btn');
+            
+            button.style.display = 'none';
+
+            html2canvas(element, {
+                scale: 2,
+                useCORS: true,
+                backgroundColor: null
+            }).then(canvas => {
+                const link = document.createElement('a');
+                link.download = 'Anup_Neupane_CV.png';
+                link.href = canvas.toDataURL('image/png');
+                link.click();
+                
+                button.style.display = 'block';
+            });
+        }
+    </script>
 </body>
 </html>
-
