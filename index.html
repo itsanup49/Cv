@@ -1,21 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="color-scheme: light !important;">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="only light">
+    <meta name="supported-color-schemes" content="light">
     <title>Anup Neupane - CV</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     
     <style>
         :root {
-            --glass-bg: rgba(255, 255, 255, 0.45);
-            --glass-border: rgba(255, 255, 255, 0.65);
-            --glass-shadow: 0 20px 40px rgba(0, 0, 0, 0.04), inset 0 1px 1px rgba(255, 255, 255, 0.8);
-            --text-heading: #1e293b;
+            color-scheme: light !important;
+            --glass-bg: rgba(255, 255, 255, 0.65);
+            --glass-border: rgba(255, 255, 255, 0.85);
+            --glass-shadow: 0 15px 35px rgba(0, 0, 0, 0.04), inset 0 1px 1px rgba(255, 255, 255, 0.9);
+            --text-heading: #0f172a;
             --text-body: #334155;
-            --text-muted: #64748b;
-            --radius-large: 28px;
+            --radius-main: 28px;
         }
 
         * {
@@ -26,65 +29,91 @@
             -webkit-font-smoothing: antialiased;
         }
 
+        html, body {
+            background-color: #dbe2ef !important;
+            color: #334155 !important;
+            color-scheme: light !important;
+        }
+
         body {
             min-height: 100vh;
             background: 
-                radial-gradient(at 10% 10%, #e0f2fe 0px, transparent 55%),
-                radial-gradient(at 90% 15%, #fbcfe8 0px, transparent 50%),
-                radial-gradient(at 85% 85%, #ffedd5 0px, transparent 55%),
-                radial-gradient(at 15% 85%, #fef3c7 0px, transparent 50%),
-                #f1f5f9;
+                radial-gradient(circle at 10% 15%, rgba(186, 230, 253, 0.85) 0%, transparent 45%),
+                radial-gradient(circle at 90% 20%, rgba(251, 207, 232, 0.85) 0%, transparent 45%),
+                radial-gradient(circle at 15% 75%, rgba(254, 215, 170, 0.75) 0%, transparent 50%),
+                radial-gradient(circle at 85% 85%, rgba(254, 240, 138, 0.8) 0%, transparent 45%),
+                #cbd5e1 !important;
             background-attachment: fixed;
             padding: 40px 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            color: var(--text-body);
         }
 
-        .cv-wrapper {
-            max-width: 1000px;
+        .cv-container {
+            max-width: 960px;
             width: 100%;
             display: grid;
-            grid-template-columns: 320px 1fr;
-            grid-template-rows: auto 1fr;
+            grid-template-columns: 310px 1fr;
             gap: 20px;
             grid-template-areas:
-                "avatar header"
+                "sidebar header"
                 "sidebar main";
+            align-items: start;
         }
 
         /* Glass Panel Base */
         .glass-panel {
-            background: var(--glass-bg);
-            backdrop-filter: blur(25px);
-            -webkit-backdrop-filter: blur(25px);
-            border: 1px solid var(--glass-border);
-            border-radius: var(--radius-large);
+            background: var(--glass-bg) !important;
+            backdrop-filter: blur(25px) saturate(160%);
+            -webkit-backdrop-filter: blur(25px) saturate(160%);
+            border: 1.5px solid var(--glass-border) !important;
+            border-radius: var(--radius-main);
             box-shadow: var(--glass-shadow);
-            padding: 28px;
+            padding: 26px;
         }
 
-        /* Avatar Container Area */
-        .avatar-area {
-            grid-area: avatar;
+        /* Top Right Header Panel */
+        .header-panel {
+            grid-area: header;
             display: flex;
             align-items: center;
+            padding: 22px 32px;
+            min-height: 90px;
+        }
+
+        .header-panel h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: #334155 !important;
+            letter-spacing: -0.5px;
+        }
+
+        /* Integrated Left Sidebar with Embedded PFP */
+        .sidebar-panel {
+            grid-area: sidebar;
+            display: flex;
+            flex-direction: column;
+            gap: 22px;
+        }
+
+        .profile-container {
+            display: flex;
             justify-content: center;
+            margin-bottom: 6px;
         }
 
-        .avatar-frame {
-            width: 170px;
-            height: 170px;
+        .profile-img-frame {
+            width: 140px;
+            height: 140px;
             border-radius: 50%;
-            padding: 6px;
-            background: rgba(255, 255, 255, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.9);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+            padding: 5px;
+            background: rgba(255, 255, 255, 0.8);
+            border: 2px solid rgba(255, 255, 255, 0.95);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
         }
 
-        .avatar-frame img {
+        .profile-img-frame img {
             width: 100%;
             height: 100%;
             border-radius: 50%;
@@ -92,200 +121,175 @@
             display: block;
         }
 
-        /* Header Panel */
-        .header-panel {
-            grid-area: header;
-            display: flex;
-            align-items: center;
-            padding: 24px 36px;
-        }
-
-        .header-panel h1 {
-            font-size: 2.5rem;
-            font-weight: 500;
-            color: #334155;
-            letter-spacing: -0.5px;
-        }
-
-        /* Sidebar Panel */
-        .sidebar-panel {
-            grid-area: sidebar;
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
-        }
-
         .contact-list {
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 10px;
         }
 
         .contact-item {
             display: flex;
             align-items: center;
-            gap: 12px;
-            font-size: 0.88rem;
+            gap: 10px;
+            font-size: 0.84rem;
             font-weight: 600;
-            color: var(--text-heading);
+            color: var(--text-heading) !important;
         }
 
         .contact-item i {
-            width: 18px;
-            font-size: 1rem;
-            color: var(--text-heading);
+            width: 16px;
+            font-size: 0.95rem;
+            color: var(--text-heading) !important;
             text-align: center;
         }
 
         .section-title {
-            font-size: 1rem;
-            font-weight: 700;
+            font-size: 0.9rem;
+            font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 1.2px;
-            color: #1e293b;
-            margin-bottom: 12px;
+            color: var(--text-heading) !important;
+            margin-bottom: 10px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
             padding-bottom: 4px;
         }
 
         .sidebar-block {
-            margin-bottom: 16px;
+            margin-bottom: 12px;
         }
 
         .sidebar-block:last-child {
             margin-bottom: 0;
         }
 
-        .sidebar-block h3 {
-            font-size: 0.95rem;
+        .sidebar-block h4 {
+            font-size: 0.88rem;
             font-weight: 700;
-            color: var(--text-heading);
+            color: var(--text-heading) !important;
             line-height: 1.3;
         }
 
         .sidebar-block p {
-            font-size: 0.82rem;
-            color: var(--text-body);
+            font-size: 0.8rem;
+            color: var(--text-body) !important;
             font-weight: 500;
             line-height: 1.35;
         }
 
-        /* Skills List */
         .skills-list {
             list-style: none;
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 8px;
         }
 
         .skills-list li {
             display: flex;
             align-items: center;
             gap: 10px;
-            font-size: 0.88rem;
+            font-size: 0.84rem;
             font-weight: 600;
-            color: var(--text-heading);
+            color: var(--text-heading) !important;
         }
 
         .skills-list li i {
-            width: 18px;
-            font-size: 0.95rem;
-            color: var(--text-heading);
+            width: 16px;
+            font-size: 0.9rem;
+            color: var(--text-heading) !important;
             text-align: center;
         }
 
-        /* Language Block */
         .language-text {
-            font-size: 0.9rem;
+            font-size: 0.84rem;
             font-weight: 600;
-            color: var(--text-heading);
+            color: var(--text-heading) !important;
             line-height: 1.5;
         }
 
-        /* Main Content Panel */
+        /* Right Main Content Panel */
         .main-panel {
             grid-area: main;
             display: flex;
             flex-direction: column;
-            gap: 28px;
+            gap: 26px;
         }
 
         .content-section h2 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--text-heading);
-            margin-bottom: 12px;
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: var(--text-heading) !important;
+            margin-bottom: 10px;
             letter-spacing: -0.3px;
         }
 
         .content-section p {
-            font-size: 0.92rem;
+            font-size: 0.88rem;
             line-height: 1.6;
-            color: var(--text-body);
+            color: var(--text-body) !important;
             font-weight: 500;
         }
 
-        /* Work Experience Bulleted Items */
-        .experience-list {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
         .experience-item {
-            position: relative;
-            padding-left: 28px;
+            margin-bottom: 18px;
         }
 
-        .experience-item::before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            top: -2px;
-            font-size: 1.8rem;
-            color: #0f172a;
-            line-height: 1;
+        .experience-item:last-child {
+            margin-bottom: 0;
         }
 
         .experience-item h3 {
-            font-size: 1.05rem;
+            font-size: 0.98rem;
             font-weight: 700;
-            color: var(--text-heading);
+            color: var(--text-heading) !important;
             margin-bottom: 4px;
         }
 
         .experience-item p {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             line-height: 1.55;
-            color: var(--text-body);
+            color: var(--text-body) !important;
             font-weight: 500;
         }
 
-        /* Footer */
+        /* Save Button */
+        .download-btn {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            padding: 12px 22px;
+            background: #0f172a;
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
         .footer-text {
             margin-top: 20px;
             width: 100%;
-            max-width: 1000px;
+            max-width: 960px;
             text-align: right;
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             font-weight: 600;
-            color: var(--text-heading);
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-            gap: 6px;
+            color: var(--text-heading) !important;
         }
 
-        /* Responsive Mobile Layout */
-        @media (max-width: 880px) {
+        /* Mobile View */
+        @media (max-width: 850px) {
             body {
-                padding: 20px 12px;
+                padding: 16px 12px;
             }
 
-            .cv-wrapper {
+            .cv-container {
                 grid-template-columns: 1fr;
                 grid-template-areas:
-                    "avatar"
                     "header"
                     "sidebar"
                     "main";
@@ -302,28 +306,32 @@
             }
 
             .footer-text {
-                justify-content: center;
+                text-align: center;
             }
         }
     </style>
 </head>
 <body>
 
-    <div class="cv-wrapper">
-        <!-- Avatar Area -->
-        <div class="avatar-area">
-            <div class="avatar-frame">
-                <img src="profile.jpg" alt="Anup Neupane">
-            </div>
-        </div>
+    <!-- Floating Save Button -->
+    <button class="download-btn" onclick="downloadJPG()">
+        <i class="fa-solid fa-floppy-disk"></i> Save
+    </button>
 
-        <!-- Header Panel -->
+    <div class="cv-container">
+        <!-- Top Right Header Panel -->
         <header class="glass-panel header-panel">
             <h1>Anup Neupane</h1>
         </header>
 
-        <!-- Sidebar Panel -->
+        <!-- Left Sidebar Panel with Embedded PFP -->
         <aside class="glass-panel sidebar-panel">
+            <div class="profile-container">
+                <div class="profile-img-frame">
+                    <img src="profile.jpg" alt="Anup Neupane">
+                </div>
+            </div>
+
             <div class="contact-list">
                 <div class="contact-item">
                     <i class="fa-solid fa-phone"></i>
@@ -340,77 +348,92 @@
             </div>
 
             <div>
-                <h2 class="section-title">EDUCATION</h2>
+                <h3 class="section-title">EDUCATION</h3>
                 <div class="sidebar-block">
-                    <h3>B.Sc. Computer Engineering</h3>
-                    <p>Enrolled: 2084 - Present</p>
+                    <h4>Grade 10 SEE</h4>
+                    <p>Tri-padma Vidyashram Sec. School<br>2080</p>
                 </div>
                 <div class="sidebar-block">
-                    <h3>+2 Science (Completed)</h3>
-                    <p>Tri-padma Vidyashram Sec. School<br>Dates: 2081 - 2083</p>
-                </div>
-                <div class="sidebar-block">
-                    <h3>Grade 10 SEE (Completed)</h3>
-                    <p>Tri-padma Vidyashram Sec. School<br>Dates: 2080</p>
+                    <h4>+2 Science</h4>
+                    <p>Tri-padma Vidyashram Sec. School<br>2081 - 2083</p>
                 </div>
             </div>
 
             <div>
-                <h2 class="section-title">SKILLS</h2>
+                <h3 class="section-title">SKILLS</h3>
                 <ul class="skills-list">
-                    <li><i class="fa-solid fa-desktop"></i> Computer Proficiency</li>
-                    <li><i class="fa-regular fa-file-lines"></i> Data Entry</li>
-                    <li><i class="fa-solid fa-magnifying-glass"></i> Data Research</li>
-                    <li><i class="fa-solid fa-table-cells"></i> Spreadsheets</li>
-                    <li><i class="fa-solid fa-code"></i> Web Development (HTML/CSS)</li>
-                    <li><i class="fa-brands fa-php"></i> PHP & DBMS Basics</li>
-                    <li><i class="fa-solid fa-video"></i> Video Editing</li>
-                    <li><i class="fa-solid fa-bullhorn"></i> Social Media</li>
-                    <li><i class="fa-solid fa-gamepad"></i> Community Engagement (Game Dynamics)</li>
+                    <li><i class="fa-solid fa-mobile-screen-button"></i> Computer Proficiency</li>
+                    <li><i class="fa-regular fa-file-lines"></i> Microsoft office</li>
+                    <li><i class="fa-solid fa-magnifying-glass"></i> Data Research & Entry</li>
+                    <li><i class="fa-solid fa-robot"></i> AI Usage Proficiency</li>
+                    <li><i class="fa-brands fa-github"></i> Basic GitHub</li>
+                    <li><i class="fa-solid fa-video"></i> intermediate lvl Video Editing</li>
+                    <li><i class="fa-solid fa-share-nodes"></i> Social Media & SEO managing</li>
                 </ul>
             </div>
 
             <div>
-                <h2 class="section-title">LANGUAGE</h2>
+                <h3 class="section-title">LANGUAGE</h3>
                 <div class="language-text">
+                    Nepali - Native<br>
                     English - Fluent<br>
-                    Nepali - Native
+                    Hindi - Fluent
                 </div>
             </div>
         </aside>
 
-        <!-- Main Content Panel -->
+        <!-- Right Main Content Panel -->
         <main class="glass-panel main-panel">
             <section class="content-section">
                 <h2>About Me</h2>
                 <p>
-                    I am a curious, post-Grade 12 science graduate with an +2 in Science, now pursuing a Bachelor's in Computer Engineering. My passion lies at the intersection of technology and creative community-building. I've successfully managed diverse online communities and am now honing technical skills to develop similar digital platforms, with a focus on web backend logic and interactive systems.
+                    I am a curious and tech-savvy individual who loves to take on new challenges. I love learning by doing and finding creative ways to get things done, whether it's building an online community or figuring out a new digital tool. I'm always on the lookout for new things to learn and I love exploring the intersection of technology and creativity.
                 </p>
             </section>
 
             <section class="content-section">
-                <h2>WORK EXPERIENCE</h2>
-                <ul class="experience-list">
-                    <li class="experience-item">
-                        <h3>Title: Organic Community Builder (Facebook)</h3>
-                        <p>Detail: (2080 - 2083). Managed and organically grew a gaming-focused Facebook community to 4.8k followers. Analyzed rarity tiers and player dynamics in 'Mobile Legends' and 'Call of Duty: Mobile' to create highly engaging, data-driven content and video edits. Handling all content creation without paid spend.</p>
-                    </li>
-                    <li class="experience-item">
-                        <h3>Title: Freelance Data Researcher</h3>
-                        <p>Detail: (2080 - 2083). Searched for different companies and their detailed profiles (including name, location, and phone numbers) from the web and individual clients, entered the data accurately into provided spreadsheets, and completed multiple projects with payment verification upon delivery.</p>
-                    </li>
-                    <li class="experience-item">
-                        <h3>Title: PHP DBMS Website Project</h3>
-                        <p>Detail: Designed and developed a relational database management system (DBMS) with a full frontend and backend in PHP. Features include data persistence, user forms, and interactive reports with symmetrical design and full code documentation.</p>
-                    </li>
-                </ul>
+                <h2>Work Experience</h2>
+                
+                <div class="experience-item">
+                    <h3>Data Research & Entry (Paid)</h3>
+                    <p>I Researched different companies and their details from the internet and collected their details such as name, location, and phone number services they provide then entered the data accurately into provided spreadsheets. Completed multiple projects and received payment upon delivery.</p>
+                </div>
+
+                <div class="experience-item">
+                    <h3>Facebook Page (4.8k Followers)</h3>
+                    <p>I grew a Facebook page to 4.8k followers entirely through organic reach. Created and posted video edits and song edits consistently, handling all content creation without running any paid ads.</p>
+                </div>
+
+                <div class="experience-item">
+                    <h3>Junior LiDAR Data Analyst - Geovest (Paid)</h3>
+                    <p>I worked at Geovest using Spatix software to classify LiDAR mapping data, including ground terrain, structures, vegetation, and high-tension towers. Delivered project blocks on deadline with minimal errors under project manager and seniors supervision.</p>
+                </div>
             </section>
         </main>
     </div>
 
     <footer class="footer-text">
-        © 2084 Anup Neupane <i class="fa-solid fa-sparkles" style="font-size: 0.75rem;"></i>
+        © 2084 Anup Neupane
     </footer>
 
+    <script>
+        function downloadJPG() {
+            const btn = document.querySelector('.download-btn');
+            btn.style.display = 'none';
+
+            html2canvas(document.body, {
+                scale: 2,
+                useCORS: true,
+                allowTaint: true,
+                backgroundColor: '#cbd5e1'
+            }).then(canvas => {
+                btn.style.display = 'flex';
+                const link = document.createElement('a');
+                link.download = 'Anup_Neupane_CV.jpg';
+                link.href = canvas.toDataURL('image/jpeg', 0.98);
+                link.click();
+            });
+        }
+    </script>
 </body>
 </html>
