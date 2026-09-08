@@ -9,9 +9,9 @@
     
     <style>
         :root {
-            --glass-bg: rgba(255, 255, 255, 0.78);
-            --glass-border: rgba(255, 255, 255, 0.95);
-            --text-main: #1e293b;
+            --glass-bg: rgba(255, 255, 255, 0.85);
+            --glass-border: #ffffff;
+            --text-main: #334155;
             --text-heading: #0f172a;
         }
 
@@ -32,34 +32,34 @@
                         #e2e8f0;
             background-attachment: fixed;
             min-height: 100vh;
-            padding: 40px 20px;
+            padding: 20px;
             display: flex;
             justify-content: center;
             align-items: flex-start;
         }
 
         .wrapper {
-            max-width: 1100px;
+            max-width: 960px;
             width: 100%;
             display: flex;
-            gap: 28px;
+            gap: 20px;
             align-items: stretch;
         }
 
         /* Glass Panel Base */
         .glass-panel {
             background: var(--glass-bg);
-            backdrop-filter: blur(25px);
-            -webkit-backdrop-filter: blur(25px);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             border: 2px solid var(--glass-border);
-            border-radius: 28px;
-            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
-            padding: 35px;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+            padding: 24px;
         }
 
         /* Left Sidebar */
         .sidebar {
-            width: 360px;
+            width: 300px;
             flex-shrink: 0;
             display: flex;
             flex-direction: column;
@@ -69,75 +69,75 @@
             width: 100%;
             display: flex;
             justify-content: center;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
 
         .profile-img {
-            width: 190px;
-            height: 190px;
+            width: 140px;
+            height: 140px;
             border-radius: 50%;
             object-fit: cover;
-            border: 6px solid #ffffff;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            border: 4px solid #ffffff;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.1);
         }
 
         .sidebar-inner { width: 100%; }
 
-        .contact-info { margin-bottom: 35px; }
+        .contact-info { margin-bottom: 22px; }
         .contact-item {
             display: flex;
             align-items: center;
-            gap: 14px;
-            margin-bottom: 14px;
-            font-size: 0.98rem;
+            gap: 10px;
+            margin-bottom: 10px;
+            font-size: 0.85rem;
             color: var(--text-main);
             font-weight: 600;
         }
-        .contact-item i { font-size: 1.2rem; width: 22px; color: #0f172a; }
+        .contact-item i { font-size: 1rem; width: 18px; color: #0f172a; }
 
         .section-title {
-            font-size: 1.15rem;
+            font-size: 0.95rem;
             font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
-            margin-bottom: 18px;
+            letter-spacing: 1.2px;
+            margin-bottom: 12px;
             color: var(--text-heading);
-            border-bottom: 2px solid rgba(0,0,0,0.12);
-            padding-bottom: 8px;
+            border-bottom: 2px solid rgba(0,0,0,0.1);
+            padding-bottom: 4px;
         }
 
-        .sub-block { margin-bottom: 22px; }
-        .sub-block h4 { font-size: 1.1rem; color: var(--text-heading); font-weight: 700; }
-        .sub-block p { font-size: 0.95rem; color: var(--text-main); line-height: 1.5; font-weight: 500; }
+        .sub-block { margin-bottom: 14px; }
+        .sub-block h4 { font-size: 0.9rem; color: var(--text-heading); font-weight: 700; }
+        .sub-block p { font-size: 0.82rem; color: var(--text-main); line-height: 1.35; font-weight: 500; }
 
         .skills-list { list-style: none; }
         .skills-list li {
-            font-size: 1.02rem;
-            margin-bottom: 12px;
+            font-size: 0.85rem;
+            margin-bottom: 8px;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
             color: var(--text-main);
             font-weight: 600;
         }
-        .skills-list li i { color: #0f172a; width: 20px; font-size: 1.1rem; }
+        .skills-list li i { color: #0f172a; width: 16px; font-size: 0.95rem; }
 
         /* Right Column */
         .right-column {
             flex: 1;
             display: flex;
             flex-direction: column;
-            gap: 28px;
+            gap: 20px;
         }
 
         .header-panel {
             display: flex;
             align-items: center;
-            padding: 40px 50px;
+            padding: 24px 30px;
         }
 
         .header-panel h1 {
-            font-size: 3.4rem;
+            font-size: 2.4rem;
             font-weight: 800;
             color: var(--text-heading);
             letter-spacing: -0.5px;
@@ -147,91 +147,113 @@
             flex: 1;
         }
 
-        .content-block { margin-bottom: 40px; }
+        .content-block { margin-bottom: 24px; }
         .content-block:last-child { margin-bottom: 0; }
         .content-block h2 {
-            font-size: 1.8rem;
-            margin-bottom: 16px;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
             color: var(--text-heading);
             font-weight: 800;
         }
         .content-block p {
-            line-height: 1.75;
+            line-height: 1.55;
             color: var(--text-main);
-            font-size: 1.08rem;
+            font-size: 0.88rem;
             font-weight: 500;
         }
 
-        .experience-item { margin-bottom: 30px; }
+        .experience-item { margin-bottom: 18px; }
         .experience-item:last-child { margin-bottom: 0; }
         .experience-item h3 {
-            font-size: 1.35rem;
-            margin-bottom: 10px;
+            font-size: 1.05rem;
+            margin-bottom: 6px;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
             color: var(--text-heading);
             font-weight: 700;
         }
         .experience-item h3::before {
             content: '';
-            width: 10px;
-            height: 10px;
+            width: 7px;
+            height: 7px;
             background: #0f172a;
             border-radius: 50%;
         }
 
-        /* Download Button */
+        /* Floating Button */
         .download-btn {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
-            padding: 16px 32px;
+            bottom: 25px;
+            right: 25px;
+            padding: 14px 28px;
             background: #0f172a;
             color: #ffffff;
             border: none;
             border-radius: 50px;
             font-weight: 700;
-            font-size: 1.05rem;
+            font-size: 0.95rem;
             cursor: pointer;
             box-shadow: 0 8px 25px rgba(0,0,0,0.3);
             z-index: 9999;
-            transition: transform 0.2s ease;
-        }
-        .download-btn:hover {
-            transform: scale(1.05);
         }
 
-        /* HD Print & PDF Export Rules */
+        /* STRICT PRINT RULES */
+        @page {
+            size: A4 portrait;
+            margin: 0;
+        }
+
         @media print {
-            body {
-                padding: 0;
-                background: white;
+            html, body {
+                width: 210mm;
+                height: 297mm;
+                padding: 10mm !important;
+                background: #f1f5f9 !important;
                 -webkit-print-color-adjust: exact !important;
                 print-color-adjust: exact !important;
+                overflow: hidden;
             }
-            .download-btn {
-                display: none !important;
-            }
+
+            .download-btn { display: none !important; }
+
             .wrapper {
-                max-width: 100%;
+                width: 100% !important;
+                height: 100% !important;
+                gap: 15px !important;
             }
+
+            .glass-panel {
+                background: #ffffff !important;
+                backdrop-filter: none !important;
+                -webkit-backdrop-filter: none !important;
+                border: 1px solid #cbd5e1 !important;
+                box-shadow: none !important;
+                padding: 18px !important;
+                break-inside: avoid !important;
+            }
+
+            .sidebar { width: 260px !important; }
+            .profile-img { width: 110px !important; height: 110px !important; }
+            .header-panel { padding: 16px 22px !important; }
+            .header-panel h1 { font-size: 2rem !important; }
+            .content-block h2 { font-size: 1.15rem !important; margin-bottom: 6px !important; }
+            .content-block p { font-size: 0.8rem !important; line-height: 1.4 !important; }
+            .experience-item h3 { font-size: 0.95rem !important; }
         }
 
-        /* Responsive Mobile Layout */
-        @media (max-width: 850px) {
-            body { padding: 15px 10px; }
+        /* Mobile Viewport Fix */
+        @media (max-width: 850px) and (min-width: 0px) {
+            body { padding: 12px; }
             .wrapper { flex-direction: column; }
             .sidebar, .right-column { width: 100%; }
-            .header-panel h1 { font-size: 2.5rem; text-align: center; }
-            .header-panel { justify-content: center; }
         }
     </style>
 </head>
 <body>
 
     <button class="download-btn" onclick="window.print()">
-        <i class="fa-solid fa-download"></i> Save / Export HD
+        <i class="fa-solid fa-floppy-disk"></i> Save
     </button>
 
     <div class="wrapper">
@@ -272,9 +294,9 @@
                     </ul>
                 </div>
 
-                <div class="sidebar-section" style="margin-top:30px">
+                <div class="sidebar-section" style="margin-top:18px">
                     <h3 class="section-title">Language</h3>
-                    <p style="font-size:1rem; color: var(--text-main); font-weight: 600;">Nepali - Native<br>English - Fluent<br>Hindi - Fluent</p>
+                    <p style="font-size:0.82rem; color: var(--text-main); font-weight: 600;">Nepali - Native<br>English - Fluent<br>Hindi - Fluent</p>
                 </div>
             </div>
         </aside>
