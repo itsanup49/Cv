@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light">
     <title>Anup Neupane - CV</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -10,7 +11,8 @@
     
     <style>
         :root {
-            --card-bg: rgba(255, 255, 255, 0.92);
+            color-scheme: light;
+            --card-bg: rgba(255, 255, 255, 0.88);
             --card-border: #ffffff;
             --text-main: #334155;
             --text-heading: #0f172a;
@@ -25,68 +27,51 @@
         }
 
         body {
-            background-color: #0f172a;
+            background: linear-gradient(135deg, #bae6fd 0%, #f0abfc 35%, #fde68a 70%, #bbf7d0 100%);
+            background-attachment: fixed;
             min-height: 100vh;
-            padding: 20px 10px;
+            padding: 20px;
             display: flex;
             justify-content: center;
             align-items: flex-start;
         }
 
-        /* CAPTURE WRAPPER (Includes full gradient & layout) */
-        #cv-export-area {
-            max-width: 980px;
+        #cv-container {
+            max-width: 960px;
             width: 100%;
-            padding: 30px;
-            background: radial-gradient(at 0% 0%, #bae6fd 0, transparent 50%), 
-                        radial-gradient(at 50% 0%, #f0abfc 0, transparent 50%), 
-                        radial-gradient(at 100% 0%, #fde68a 0, transparent 50%), 
-                        radial-gradient(at 0% 100%, #bbf7d0 0, transparent 50%), 
-                        radial-gradient(at 100% 100%, #e2e8f0 0, transparent 50%),
-                        #e2e8f0;
-            border-radius: 28px;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
-        }
-
-        /* GRID TEMPLATE AREAS */
-        .wrapper {
             display: grid;
             grid-template-columns: 280px 1fr;
             grid-template-areas:
                 "sidebar header"
                 "sidebar main";
             gap: 20px;
-            width: 100%;
         }
 
         .header-panel { grid-area: header; }
         .sidebar { grid-area: sidebar; }
         .main-content { grid-area: main; }
 
-        /* Solid Glass-Style Panels (Canvas Friendly) */
         .glass-panel {
             background: var(--card-bg);
             border: 2px solid var(--card-border);
             border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
-            padding: 24px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+            padding: 22px;
         }
 
-        /* Header */
         .header-panel {
             display: flex;
             align-items: center;
-            padding: 22px 28px;
+            padding: 20px 25px;
         }
 
         .header-panel h1 {
-            font-size: 2.3rem;
+            font-size: 2.2rem;
             font-weight: 800;
             color: var(--text-heading);
             letter-spacing: -0.5px;
         }
 
-        /* Sidebar */
         .sidebar {
             display: flex;
             flex-direction: column;
@@ -96,116 +81,106 @@
             width: 100%;
             display: flex;
             justify-content: center;
-            margin-bottom: 20px;
+            margin-bottom: 18px;
         }
 
         .profile-img {
-            width: 135px;
-            height: 135px;
+            width: 130px;
+            height: 130px;
             border-radius: 50%;
             object-fit: cover;
             border: 4px solid #ffffff;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.1);
         }
 
-        .contact-info { margin-bottom: 22px; }
+        .contact-info { margin-bottom: 20px; }
         .contact-item {
             display: flex;
             align-items: center;
             gap: 10px;
-            margin-bottom: 10px;
-            font-size: 0.85rem;
+            margin-bottom: 8px;
+            font-size: 0.82rem;
             color: var(--text-main);
             font-weight: 600;
         }
-        .contact-item i { font-size: 1rem; width: 18px; color: #0f172a; }
+        .contact-item i { font-size: 0.95rem; width: 16px; color: #0f172a; }
 
         .section-title {
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 1.2px;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             color: var(--text-heading);
-            border-bottom: 2px solid rgba(0,0,0,0.08);
+            border-bottom: 2px solid rgba(0,0,0,0.1);
             padding-bottom: 4px;
         }
 
-        .sub-block { margin-bottom: 14px; }
-        .sub-block h4 { font-size: 0.9rem; color: var(--text-heading); font-weight: 700; }
-        .sub-block p { font-size: 0.82rem; color: var(--text-main); line-height: 1.4; font-weight: 500; }
+        .sub-block { margin-bottom: 12px; }
+        .sub-block h4 { font-size: 0.88rem; color: var(--text-heading); font-weight: 700; }
+        .sub-block p { font-size: 0.8rem; color: var(--text-main); line-height: 1.35; font-weight: 500; }
 
         .skills-list { list-style: none; }
         .skills-list li {
-            font-size: 0.85rem;
-            margin-bottom: 8px;
+            font-size: 0.82rem;
+            margin-bottom: 7px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
             color: var(--text-main);
             font-weight: 600;
         }
-        .skills-list li i { color: #0f172a; width: 16px; font-size: 0.95rem; }
+        .skills-list li i { color: #0f172a; width: 15px; font-size: 0.9rem; }
 
-        /* Main Content */
-        .content-block { margin-bottom: 22px; }
+        .content-block { margin-bottom: 20px; }
         .content-block:last-child { margin-bottom: 0; }
         .content-block h2 {
-            font-size: 1.3rem;
-            margin-bottom: 10px;
+            font-size: 1.25rem;
+            margin-bottom: 8px;
             color: var(--text-heading);
             font-weight: 800;
         }
         .content-block p {
-            line-height: 1.55;
+            line-height: 1.5;
             color: var(--text-main);
-            font-size: 0.88rem;
+            font-size: 0.85rem;
             font-weight: 500;
         }
 
-        .experience-item { margin-bottom: 18px; }
+        .experience-item { margin-bottom: 15px; }
         .experience-item:last-child { margin-bottom: 0; }
         .experience-item h3 {
-            font-size: 1.05rem;
-            margin-bottom: 5px;
+            font-size: 1rem;
+            margin-bottom: 4px;
             display: flex;
             align-items: center;
             gap: 8px;
             color: var(--text-heading);
             font-weight: 700;
         }
-        .experience-item h3::before {
-            content: '';
-            width: 7px;
-            height: 7px;
-            background: #0f172a;
-            border-radius: 50%;
-        }
 
-        /* Floating Button */
         .download-btn {
             position: fixed;
             bottom: 25px;
             right: 25px;
-            padding: 14px 28px;
+            padding: 14px 24px;
             background: #0f172a;
             color: #ffffff;
-            border: 2px solid #334155;
+            border: none;
             border-radius: 50px;
             font-weight: 700;
             font-size: 0.95rem;
             cursor: pointer;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
             z-index: 9999;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
         }
 
-        /* MOBILE VIEWPORT RE-ORDERING */
         @media screen and (max-width: 850px) {
-            #cv-export-area { padding: 15px; border-radius: 18px; }
-            .wrapper {
+            body { padding: 12px; }
+            #cv-container {
                 grid-template-columns: 1fr;
                 grid-template-areas:
                     "header"
@@ -223,148 +198,107 @@
 </head>
 <body>
 
-    <button class="download-btn" onclick="saveAsHDImage()">
-        <i class="fa-solid fa-download"></i> Save as HD PNG
+    <button class="download-btn" onclick="downloadJPG()">
+        <i class="fa-solid fa-floppy-disk"></i> Save
     </button>
 
-    <div id="cv-export-area">
-        <div class="wrapper" id="cv-wrapper">
-            <header class="glass-panel header-panel">
-                <h1>Anup Neupane</h1>
-            </header>
+    <div id="cv-container">
+        <header class="glass-panel header-panel">
+            <h1>Anup Neupane</h1>
+        </header>
 
-            <aside class="glass-panel sidebar">
-                <div class="profile-container">
-                    <img src="profile.jpg" alt="Anup Neupane" class="profile-img">
+        <aside class="glass-panel sidebar">
+            <div class="profile-container">
+                <img src="profile.jpg" alt="Anup Neupane" class="profile-img" crossorigin="anonymous">
+            </div>
+            
+            <div class="sidebar-inner">
+                <div class="contact-info">
+                    <div class="contact-item"><i class="fa-solid fa-phone"></i> +977 9808821327</div>
+                    <div class="contact-item"><i class="fa-solid fa-envelope"></i> itsanup49@gmail.com</div>
+                    <div class="contact-item"><i class="fa-solid fa-location-dot"></i> Pulchowk, Lalitpur, Nepal</div>
                 </div>
+
+                <div class="sidebar-section">
+                    <h3 class="section-title">Education</h3>
+                    <div class="sub-block">
+                        <h4>Grade 10 SEE</h4>
+                        <p>Tri-padma Vidyashram Sec. School<br>2080</p>
+                    </div>
+                    <div class="sub-block">
+                        <h4>+2 Science</h4>
+                        <p>Tri-padma Vidyashram Sec. School<br>2081 - 2083</p>
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <h3 class="section-title">Skills</h3>
+                    <ul class="skills-list">
+                        <li><i class="fa-solid fa-mobile-screen-button"></i> Computer Proficiency</li>
+                        <li><i class="fa-regular fa-file-lines"></i> Microsoft office</li>
+                        <li><i class="fa-solid fa-magnifying-glass"></i> Data Research & Entry</li>
+                        <li><i class="fa-solid fa-table"></i> AI Usage Proficiency</li>
+                        <li><i class="fa-brands fa-github"></i> Basic GitHub</li>
+                        <li><i class="fa-solid fa-video"></i> intermediate lvl Video Editing</li>
+                        <li><i class="fa-solid fa-share-nodes"></i> Social Media & SEO managing</li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-section" style="margin-top:14px">
+                    <h3 class="section-title">Language</h3>
+                    <p style="font-size:0.8rem; color: var(--text-main); font-weight: 600;">Nepali - Native<br>English - Fluent<br>Hindi - Fluent</p>
+                </div>
+            </div>
+        </aside>
+
+        <main class="glass-panel main-content">
+            <section class="content-block">
+                <h2>About Me</h2>
+                <p>
+                    I am a curious and tech-savvy individual who loves to take on new challenges. I love learning by doing and finding creative ways to get things done, whether it's building an online community or figuring out a new digital tool. I'm always on the lookout for new things to learn and I love exploring the intersection of technology and creativity.
+                </p>
+            </section>
+
+            <section class="content-block">
+                <h2>Work Experience</h2>
                 
-                <div class="sidebar-inner">
-                    <div class="contact-info">
-                        <div class="contact-item"><i class="fa-solid fa-phone"></i> +977 9808821327</div>
-                        <div class="contact-item"><i class="fa-solid fa-envelope"></i> itsanup49@gmail.com</div>
-                        <div class="contact-item"><i class="fa-solid fa-location-dot"></i> Pulchowk, Lalitpur, Nepal</div>
-                    </div>
-
-                    <div class="sidebar-section">
-                        <h3 class="section-title">Education</h3>
-                        <div class="sub-block">
-                            <h4>Grade 10 SEE</h4>
-                            <p>Tri-padma Vidyashram Sec. School<br>2080</p>
-                        </div>
-                        <div class="sub-block">
-                            <h4>+2 Science</h4>
-                            <p>Tri-padma Vidyashram Sec. School<br>2081 - 2083</p>
-                        </div>
-                    </div>
-
-                    <div class="sidebar-section">
-                        <h3 class="section-title">Skills</h3>
-                        <ul class="skills-list">
-                            <li><i class="fa-solid fa-mobile-screen-button"></i> Computer Proficiency</li>
-                            <li><i class="fa-regular fa-file-lines"></i> Microsoft office</li>
-                            <li><i class="fa-solid fa-magnifying-glass"></i> Data Research & Entry</li>
-                            <li><i class="fa-solid fa-table"></i> AI Usage Proficiency</li>
-                            <li><i class="fa-brands fa-github"></i> Basic GitHub</li>
-                            <li><i class="fa-solid fa-video"></i> intermediate lvl Video Editing</li>
-                            <li><i class="fa-solid fa-share-nodes"></i> Social Media & SEO managing</li>
-                        </ul>
-                    </div>
-
-                    <div class="sidebar-section" style="margin-top:14px">
-                        <h3 class="section-title">Language</h3>
-                        <p style="font-size:0.8rem; color: var(--text-main); font-weight: 600;">Nepali - Native<br>English - Fluent<br>Hindi - Fluent</p>
-                    </div>
+                <div class="experience-item">
+                    <h3>Data Research & Entry (Paid)</h3>
+                    <p>I Researched different companies and their details from the internet and collected their details such as name, location, and phone number services they provide then entered the data accurately into provided spreadsheets. Completed multiple projects and received payment upon delivery.</p>
                 </div>
-            </aside>
 
-            <main class="glass-panel main-content">
-                <section class="content-block">
-                    <h2>About Me</h2>
-                    <p>
-                        I am a curious and tech-savvy individual who loves to take on new challenges. I love learning by doing and finding creative ways to get things done, whether it's building an online community or figuring out a new digital tool. I'm always on the lookout for new things to learn and I love exploring the intersection of technology and creativity.
-                    </p>
-                </section>
+                <div class="experience-item">
+                    <h3>Facebook Page (4.8k Followers)</h3>
+                    <p>I grew a Facebook page to 4.8k followers entirely through organic reach. Created and posted video edits and song edits consistently, handling all content creation without running any paid ads.</p>
+                </div>
 
-                <section class="content-block">
-                    <h2>Work Experience</h2>
-                    
-                    <div class="experience-item">
-                        <h3>Data Research & Entry (Paid)</h3>
-                        <p>I Researched different companies and their details from the internet and collected their details such as name, location, and phone number services they provide then entered the data accurately into provided spreadsheets. Completed multiple projects and received payment upon delivery.</p>
-                    </div>
-
-                    <div class="experience-item">
-                        <h3>Facebook Page (4.8k Followers)</h3>
-                        <p>I grew a Facebook page to 4.8k followers entirely through organic reach. Created and posted video edits and song edits consistently, handling all content creation without running any paid ads.</p>
-                    </div>
-
-                    <div class="experience-item">
-                        <h3>Junior LiDAR Data Analyst - Geovest (Paid)</h3>
-                        <p>I worked at Geovest using Spatix software to classify LiDAR mapping data, including ground terrain, structures, vegetation, and high-tension towers. Delivered project blocks on deadline with minimal errors under project manager and seniors supervision.</p>
-                    </div>
-                </section>
-            </main>
-        </div>
+                <div class="experience-item">
+                    <h3>Junior LiDAR Data Analyst - Geovest (Paid)</h3>
+                    <p>I worked at Geovest using Spatix software to classify LiDAR mapping data, including ground terrain, structures, vegetation, and high-tension towers. Delivered project blocks on deadline with minimal errors under project manager and seniors supervision.</p>
+                </div>
+            </section>
+        </main>
     </div>
 
     <script>
-        async function saveAsHDImage() {
+        function downloadJPG() {
             const btn = document.querySelector('.download-btn');
-            const exportArea = document.getElementById('cv-export-area');
-            const wrapper = document.getElementById('cv-wrapper');
-            const originalText = btn.innerHTML;
+            btn.style.display = 'none';
 
-            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Generating HD PNG...';
-            btn.style.pointerEvents = 'none';
-
-            // Store original styles to restore after export
-            const origAreaWidth = exportArea.style.width;
-            const origAreaMaxWidth = exportArea.style.maxWidth;
-            const origGridCols = wrapper.style.gridTemplateColumns;
-            const origGridAreas = wrapper.style.gridTemplateAreas;
-
-            // Force Desktop Grid Layout during capture for perfect proportions
-            exportArea.style.width = '980px';
-            exportArea.style.maxWidth = '980px';
-            wrapper.style.gridTemplateColumns = '280px 1fr';
-            wrapper.style.gridTemplateAreas = '"sidebar header" "sidebar main"';
-
-            // Brief delay to allow browser layout recalc
-            await new Promise(resolve => setTimeout(resolve, 200));
-
-            html2canvas(exportArea, {
-                scale: 3, // 3x HD Pixel Density Render
+            html2canvas(document.body, {
+                scale: 2,
                 useCORS: true,
                 allowTaint: true,
-                logging: false,
-                backgroundColor: null,
-                windowWidth: 1200
+                backgroundColor: null
             }).then(canvas => {
-                // Revert Layout back to normal screen view
-                exportArea.style.width = origAreaWidth;
-                exportArea.style.maxWidth = origAreaMaxWidth;
-                wrapper.style.gridTemplateColumns = origGridCols;
-                wrapper.style.gridTemplateAreas = origGridAreas;
-
-                btn.innerHTML = originalText;
-                btn.style.pointerEvents = 'auto';
-
-                // Download PNG
+                btn.style.display = 'flex';
                 const link = document.createElement('a');
-                link.download = 'Anup_Neupane_CV_HD.png';
-                link.href = canvas.toDataURL('image/png', 1.0);
+                link.download = 'Anup_Neupane_CV.jpg';
+                link.href = canvas.toDataURL('image/jpeg', 0.95);
                 link.click();
-            }).catch(err => {
-                exportArea.style.width = origAreaWidth;
-                exportArea.style.maxWidth = origAreaMaxWidth;
-                wrapper.style.gridTemplateColumns = origGridCols;
-                wrapper.style.gridTemplateAreas = origGridAreas;
-                
-                btn.innerHTML = originalText;
-                btn.style.pointerEvents = 'auto';
-                alert('Could not generate image. Please try again.');
             });
         }
     </script>
 </body>
 </html>
+
