@@ -42,7 +42,8 @@
             width: 100%;
             display: grid;
             grid-template-columns: 320px 1fr;
-            grid-template-rows: auto 1fr;
+            grid-template-rows: auto auto;
+            align-items: start;
             gap: 25px;
         }
 
@@ -55,6 +56,7 @@
             border-radius: 24px;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
             padding: 30px;
+            height: fit-content;
         }
 
         /* Header Panel (Name) */
@@ -142,6 +144,7 @@
         }
 
         .content-block { margin-bottom: 40px; }
+        .content-block:last-child { margin-bottom: 0; }
         .content-block h2 {
             font-size: 1.6rem;
             margin-bottom: 15px;
@@ -154,6 +157,7 @@
         }
 
         .experience-item { margin-bottom: 30px; }
+        .experience-item:last-child { margin-bottom: 0; }
         .experience-item h3 {
             font-size: 1.3rem;
             margin-bottom: 10px;
@@ -263,8 +267,8 @@
                 </div>
 
                 <div class="experience-item">
-                    <h3>Junior LiDAR Data Analyst - Geovest, Lalitpur (Paid)</h3>
-                    <p>I worked at Geovest using Spatix Lidar software to classify LiDAR mapping and data, including ground terrain, structures, vegetation, and high-tension towers. Delivered project blocks on deadline with minimal errors under project manager and seniors supervision.</p>
+                    <h3>Junior LiDAR Data Analyst - Geovest (Paid)</h3>
+                    <p>I worked at Geovest using Spatix software to classify LiDAR mapping data, including ground terrain, structures, vegetation, and high-tension towers. Delivered project blocks on deadline with minimal errors under project manager and seniors supervision.</p>
                 </div>
             </section>
         </main>
@@ -272,3 +276,4 @@
 
 </body>
 </html>
+
