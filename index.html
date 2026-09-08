@@ -4,17 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anup Neupane - CV</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     
     <style>
         :root {
-            /* iOS Glass Colors */
-            --glass-bg: rgba(255, 255, 255, 0.4);
-            --glass-border: rgba(255, 255, 255, 0.5);
+            --glass-bg: rgba(255, 255, 255, 0.75);
+            --glass-border: rgba(255, 255, 255, 0.95);
             --text-main: #334155;
-            --text-heading: #1e293b;
+            --text-heading: #0f172a;
         }
 
         * {
@@ -22,50 +21,56 @@
             padding: 0;
             box-sizing: border-box;
             font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         body {
-            /* Vibrant Mesh Gradient */
-            background: radial-gradient(at 0% 0%, #e0f2fe 0, transparent 50%), 
-                        radial-gradient(at 50% 0%, #fae8ff 0, transparent 50%), 
-                        radial-gradient(at 100% 0%, #fef3c7 0, transparent 50%), 
-                        radial-gradient(at 0% 100%, #dcfce7 0, transparent 50%), 
-                        radial-gradient(at 100% 100%, #f1f5f9 0, transparent 50%);
-            background-attachment: fixed;
+            background-color: #f1f5f9;
             min-height: 100vh;
-            padding: 40px 20px;
             display: flex;
             justify-content: center;
+            align-items: flex-start;
+            padding: 20px 0;
+        }
+
+        /* Capture Container with Gradient background embedded */
+        #cv-container {
+            max-width: 1050px;
+            width: 100%;
+            padding: 40px;
+            background: radial-gradient(at 0% 0%, #cbe5ff 0, transparent 50%), 
+                        radial-gradient(at 50% 0%, #f5d0fe 0, transparent 50%), 
+                        radial-gradient(at 100% 0%, #fef3c7 0, transparent 50%), 
+                        radial-gradient(at 0% 100%, #dcfce7 0, transparent 50%), 
+                        radial-gradient(at 100% 100%, #e2e8f0 0, transparent 50%),
+                        #e2e8f0;
+            border-radius: 12px;
         }
 
         .wrapper {
-            max-width: 1000px;
-            width: 100%;
             display: flex;
             gap: 25px;
-            align-items: flex-start;
+            align-items: stretch; /* Forces left and right columns to equal height */
         }
 
-        /* Glass Panel Base Styling */
+        /* Glass Panel Styling */
         .glass-panel {
             background: var(--glass-bg);
             backdrop-filter: blur(25px);
             -webkit-backdrop-filter: blur(25px);
-            border: 1px solid var(--glass-border);
+            border: 1.5px solid var(--glass-border);
             border-radius: 24px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
             padding: 30px;
-            height: fit-content;
         }
 
-        /* Sidebar Panel */
+        /* Sidebar Column */
         .sidebar {
             width: 320px;
             flex-shrink: 0;
             display: flex;
             flex-direction: column;
-            align-items: center;
-            text-align: left;
         }
 
         .profile-container {
@@ -76,15 +81,14 @@
         }
 
         .profile-img {
-            width: 180px;
-            height: 180px;
+            width: 170px;
+            height: 170px;
             border-radius: 50%;
             object-fit: cover;
-            border: 6px solid white;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border: 5px solid #ffffff;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
         }
 
-        /* Sidebar Sections */
         .sidebar-inner { width: 100%; }
 
         .contact-info { margin-bottom: 35px; }
@@ -95,34 +99,38 @@
             margin-bottom: 12px;
             font-size: 0.85rem;
             color: var(--text-main);
+            font-weight: 500;
         }
-        .contact-item i { font-size: 1.1rem; width: 20px; }
+        .contact-item i { font-size: 1.1rem; width: 20px; color: #1e293b; }
 
         .section-title {
-            font-size: 1.1rem;
-            font-weight: 600;
+            font-size: 1rem;
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
+            letter-spacing: 1.2px;
             margin-bottom: 15px;
             color: var(--text-heading);
-            border-bottom: 1px solid rgba(0,0,0,0.1);
-            padding-bottom: 5px;
+            border-bottom: 2px solid rgba(0,0,0,0.08);
+            padding-bottom: 6px;
         }
 
-        .sub-block { margin-bottom: 20px; }
-        .sub-block h4 { font-size: 0.95rem; color: var(--text-heading); }
+        .sub-block { margin-bottom: 18px; }
+        .sub-block h4 { font-size: 0.95rem; color: var(--text-heading); font-weight: 600; }
         .sub-block p { font-size: 0.85rem; color: var(--text-main); line-height: 1.4; }
 
         .skills-list { list-style: none; }
         .skills-list li {
-            font-size: 0.95rem;
-            margin-bottom: 8px;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
             display: flex;
             align-items: center;
             gap: 10px;
+            color: var(--text-main);
+            font-weight: 500;
         }
+        .skills-list li i { color: #1e293b; width: 18px; }
 
-        /* Right Side Content Column */
+        /* Right Column Setup */
         .right-column {
             flex: 1;
             display: flex;
@@ -130,172 +138,165 @@
             gap: 25px;
         }
 
-        /* Header Panel (Name) */
         .header-panel {
             display: flex;
             align-items: center;
-            justify-content: flex-start;
-            padding: 40px 50px;
+            padding: 35px 45px;
         }
 
         .header-panel h1 {
-            font-size: 3rem;
-            font-weight: 500;
+            font-size: 2.8rem;
+            font-weight: 700;
             color: var(--text-heading);
-            letter-spacing: -1px;
+            letter-spacing: -0.5px;
         }
 
-        /* Main Content Panel */
-        .content-block { margin-bottom: 40px; }
+        .main-content {
+            flex: 1; /* Stretches main content panel to meet bottom line */
+        }
+
+        .content-block { margin-bottom: 35px; }
         .content-block:last-child { margin-bottom: 0; }
         .content-block h2 {
-            font-size: 1.6rem;
-            margin-bottom: 15px;
+            font-size: 1.5rem;
+            margin-bottom: 12px;
             color: var(--text-heading);
+            font-weight: 700;
         }
         .content-block p {
-            line-height: 1.7;
+            line-height: 1.65;
             color: var(--text-main);
             font-size: 0.95rem;
         }
 
-        .experience-item { margin-bottom: 30px; }
+        .experience-item { margin-bottom: 25px; }
         .experience-item:last-child { margin-bottom: 0; }
         .experience-item h3 {
-            font-size: 1.3rem;
-            margin-bottom: 10px;
+            font-size: 1.2rem;
+            margin-bottom: 8px;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
+            color: var(--text-heading);
+            font-weight: 600;
         }
         .experience-item h3::before {
             content: '';
             width: 8px;
             height: 8px;
-            background: #1e293b;
+            background: #0f172a;
             border-radius: 50%;
         }
 
-        /* Download Button Styling */
+        /* Download Button */
         .download-btn {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
-            padding: 12px 24px;
-            background: #1e293b;
+            bottom: 25px;
+            right: 25px;
+            padding: 14px 28px;
+            background: #0f172a;
             color: #ffffff;
             border: none;
             border-radius: 50px;
             font-weight: 600;
+            font-size: 0.95rem;
             cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            transition: all 0.2s ease;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.25);
             z-index: 9999;
         }
-        .download-btn:hover {
-            transform: translateY(-2px);
-            background: #334155;
-        }
 
-        /* Responsive Mobile Layout */
         @media (max-width: 850px) {
-            .wrapper {
-                flex-direction: column;
-            }
-            .sidebar, .right-column {
-                width: 100%;
-            }
-            .header-panel {
-                text-align: center;
-                justify-content: center;
-            }
-            .header-panel h1 { font-size: 2.2rem; }
+            #cv-container { padding: 15px; }
+            .wrapper { flex-direction: column; }
+            .sidebar, .right-column { width: 100%; }
         }
     </style>
 </head>
 <body>
 
     <button class="download-btn" onclick="downloadCVImage()">
-        <i class="fa-solid fa-download"></i> Download as PNG
+        <i class="fa-solid fa-download"></i> Download HD PNG
     </button>
 
-    <div class="wrapper" id="cv-container">
-        <aside class="glass-panel sidebar">
-            <div class="profile-container">
-                <img src="profile.jpg" alt="Anup Neupane" class="profile-img">
+    <div id="cv-container">
+        <div class="wrapper">
+            <aside class="glass-panel sidebar">
+                <div class="profile-container">
+                    <img src="profile.jpg" alt="Anup Neupane" class="profile-img">
+                </div>
+                
+                <div class="sidebar-inner">
+                    <div class="contact-info">
+                        <div class="contact-item"><i class="fa-solid fa-phone"></i> +977 9808821327</div>
+                        <div class="contact-item"><i class="fa-solid fa-envelope"></i> itsanup49@gmail.com</div>
+                        <div class="contact-item"><i class="fa-solid fa-location-dot"></i> Pulchowk, Lalitpur, Nepal</div>
+                    </div>
+
+                    <div class="sidebar-section">
+                        <h3 class="section-title">Education</h3>
+                        <div class="sub-block">
+                            <h4>Grade 10 SEE</h4>
+                            <p>Tri-padma Vidyashram Sec. School<br>2080</p>
+                        </div>
+                        <div class="sub-block">
+                            <h4>+2 Science</h4>
+                            <p>Tri-padma Vidyashram Sec. School<br>2081 - 2083</p>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-section">
+                        <h3 class="section-title">Skills</h3>
+                        <ul class="skills-list">
+                            <li><i class="fa-solid fa-mobile-screen-button"></i> Computer Proficiency</li>
+                            <li><i class="fa-regular fa-file-lines"></i> Microsoft office</li>
+                            <li><i class="fa-solid fa-magnifying-glass"></i> Data Research & Entry</li>
+                            <li><i class="fa-solid fa-table"></i> AI Usage Proficiency</li>
+                            <li><i class="fa-brands fa-github"></i> Basic GitHub</li>
+                            <li><i class="fa-solid fa-video"></i> intermediate lvl Video Editing</li>
+                            <li><i class="fa-solid fa-share-nodes"></i> Social Media & SEO managing</li>
+                        </ul>
+                    </div>
+
+                    <div class="sidebar-section" style="margin-top:25px">
+                        <h3 class="section-title">Language</h3>
+                        <p style="font-size:0.85rem; color: var(--text-main); font-weight: 500;">Nepali - Native<br>English - Fluent<br>Hindi - Fluent</p>
+                    </div>
+                </div>
+            </aside>
+
+            <div class="right-column">
+                <header class="glass-panel header-panel">
+                    <h1>Anup Neupane</h1>
+                </header>
+
+                <main class="glass-panel main-content">
+                    <section class="content-block">
+                        <h2>About Me</h2>
+                        <p>
+                            I am a curious and tech-savvy individual who loves to take on new challenges. I love learning by doing and finding creative ways to get things done, whether it's building an online community or figuring out a new digital tool. I'm always on the lookout for new things to learn and I love exploring the intersection of technology and creativity.
+                        </p>
+                    </section>
+
+                    <section class="content-block">
+                        <h2>Work Experience</h2>
+                        
+                        <div class="experience-item">
+                            <h3>Data Research & Entry (Paid)</h3>
+                            <p>I Researched different companies and their details from the internet and collected their details such as name, location, and phone number services they provide then entered the data accurately into provided spreadsheets. Completed multiple projects and received payment upon delivery.</p>
+                        </div>
+
+                        <div class="experience-item">
+                            <h3>Facebook Page (4.8k Followers)</h3>
+                            <p>I grew a Facebook page to 4.8k followers entirely through organic reach. Created and posted video edits and song edits consistently, handling all content creation without running any paid ads.</p>
+                        </div>
+
+                        <div class="experience-item">
+                            <h3>Junior LiDAR Data Analyst - Geovest (Paid)</h3>
+                            <p>I worked at Geovest using Spatix software to classify LiDAR mapping data, including ground terrain, structures, vegetation, and high-tension towers. Delivered project blocks on deadline with minimal errors under project manager and seniors supervision.</p>
+                        </div>
+                    </section>
+                </main>
             </div>
-            
-            <div class="sidebar-inner">
-                <div class="contact-info">
-                    <div class="contact-item"><i class="fa-solid fa-phone"></i> +977 9808821327</div>
-                    <div class="contact-item"><i class="fa-solid fa-envelope"></i> itsanup49@gmail.com</div>
-                    <div class="contact-item"><i class="fa-solid fa-location-dot"></i> Pulchowk, Lalitpur, Nepal</div>
-                </div>
-
-                <div class="sidebar-section">
-                    <h3 class="section-title">Education</h3>
-                    <div class="sub-block">
-                        <h4>Grade 10 SEE</h4>
-                        <p>Tri-padma Vidyashram Sec. School<br>2080</p>
-                    </div>
-                    <div class="sub-block">
-                        <h4>+2 Science</h4>
-                        <p>Tri-padma Vidyashram Sec. School<br>2081 - 2083</p>
-                    </div>
-                </div>
-
-                <div class="sidebar-section">
-                    <h3 class="section-title">Skills</h3>
-                    <ul class="skills-list">
-                        <li><i class="fa-solid fa-mobile-screen-button"></i> Computer Proficiency</li>
-                        <li><i class="fa-regular fa-file-lines"></i> Microsoft office </li>
-                        <li><i class="fa-solid fa-magnifying-glass"></i> Data Research & Entry</li>
-                        <li><i class="fa-solid fa-table"></i> AI Usage Proficiency</li>
-                        <li><i class="fa-brands fa-github"></i> Basic GitHub</li>
-                        <li><i class="fa-solid fa-video"></i> intermediate lvl Video Editing</li>
-                        <li><i class="fa-solid fa-share-nodes"></i> Social Media & SEO managing</li>
-                    </ul>
-                </div>
-
-                <div class="sidebar-section" style="margin-top:30px">
-                    <h3 class="section-title">Language</h3>
-                    <p style="font-size:0.9rem">Nepali - Native<br>English - Fluent<br>Hindi - Fluent</p>
-                </div>
-            </div>
-        </aside>
-
-        <div class="right-column">
-            <header class="glass-panel header-panel">
-                <h1>Anup Neupane</h1>
-            </header>
-
-            <main class="glass-panel main-content">
-                <section class="content-block">
-                    <h2>About Me</h2>
-                    <p>
-                        I am a curious and tech-savvy individual who loves to take on new challenges. I love learning by doing and finding creative ways to get things done, whether it's building an online community or figuring out a new digital tool. I'm always on the lookout for new things to learn and I love exploring the intersection of technology and creativity.
-                    </p>
-                </section>
-
-                <section class="content-block">
-                    <h2>Work Experience</h2>
-                    
-                    <div class="experience-item">
-                        <h3>Data Research & Entry (Paid)</h3>
-                        <p>I Researched different companies and their details from the internet and collected their details such as name, location, and phone number services they provide then entered the data accurately into provided spreadsheets. Completed multiple projects and received payment upon delivery.</p>
-                    </div>
-
-                    <div class="experience-item">
-                        <h3>Facebook Page (4.8k Followers)</h3>
-                        <p>I grew a Facebook page to 4.8k followers entirely through organic reach. Created and posted video edits and song edits consistently, handling all content creation without running any paid ads.</p>
-                    </div>
-
-                    <div class="experience-item">
-                        <h3>Junior LiDAR Data Analyst - Geovest (Paid)</h3>
-                        <p>I worked at Geovest using Spatix software to classify LiDAR mapping data, including ground terrain, structures, vegetation, and high-tension towers. Delivered project blocks on deadline with minimal errors under project manager and seniors supervision.</p>
-                    </div>
-                </section>
-            </main>
         </div>
     </div>
 
@@ -306,14 +307,21 @@
             
             button.style.display = 'none';
 
+            // Calculate Ultra-HD Resolution scale based on device capacity
+            const nativeDPI = window.devicePixelRatio || 1;
+            const maxScale = Math.max(nativeDPI * 3, 4); 
+
             html2canvas(element, {
-                scale: 2,
+                scale: maxScale,
                 useCORS: true,
+                allowTaint: true,
+                logging: false,
+                imageTimeout: 0,
                 backgroundColor: null
             }).then(canvas => {
                 const link = document.createElement('a');
-                link.download = 'Anup_Neupane_CV.png';
-                link.href = canvas.toDataURL('image/png');
+                link.download = 'Anup_Neupane_CV_UltraHD.png';
+                link.href = canvas.toDataURL('image/png', 1.0);
                 link.click();
                 
                 button.style.display = 'block';
