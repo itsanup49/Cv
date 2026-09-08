@@ -75,7 +75,7 @@
             border: 1.5px solid var(--glass-border) !important;
             border-radius: var(--radius-main);
             box-shadow: var(--glass-shadow);
-            padding: clamp(14px, 1.8vh, 20px);
+            padding: clamp(16px, 2vh, 22px);
             display: flex;
             flex-direction: column;
         }
@@ -88,7 +88,7 @@
         }
 
         .header-panel h1 {
-            font-size: clamp(1.6rem, 2.2vh, 2.2rem);
+            font-size: clamp(1.8rem, 2.4vh, 2.4rem);
             font-weight: 800;
             color: var(--text-heading) !important;
             letter-spacing: -0.5px;
@@ -97,20 +97,21 @@
         /* Left Sidebar */
         .sidebar-panel {
             grid-area: sidebar;
-            justify-content: space-between;
-            gap: clamp(8px, 1.2vh, 14px);
+            justify-content: flex-start; /* Fixed spacing issue */
+            gap: clamp(12px, 1.8vh, 16px);
         }
 
         .profile-container {
             display: flex;
             justify-content: center;
+            margin-bottom: 4px;
         }
 
         .profile-img-frame {
-            width: clamp(90px, 12vh, 115px);
-            height: clamp(90px, 12vh, 115px);
+            width: clamp(100px, 14vh, 130px);
+            height: clamp(100px, 14vh, 130px);
             border-radius: 50%;
-            padding: 3px;
+            padding: 4px;
             background: rgba(255, 255, 255, 0.9);
             border: 2px solid rgba(255, 255, 255, 1);
             box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
@@ -127,38 +128,39 @@
         .contact-list {
             display: flex;
             flex-direction: column;
-            gap: clamp(4px, 0.8vh, 6px);
+            gap: clamp(6px, 1vh, 8px);
+            margin-bottom: 4px;
         }
 
         .contact-item {
             display: flex;
             align-items: center;
-            gap: 8px;
-            font-size: clamp(0.75rem, 1vh, 0.82rem);
+            gap: 10px;
+            font-size: clamp(0.78rem, 1.05vh, 0.85rem);
             font-weight: 700;
             color: var(--text-heading) !important;
         }
 
         .contact-item i {
-            width: 14px;
-            font-size: 0.85rem;
+            width: 16px;
+            font-size: 0.9rem;
             color: var(--text-heading) !important;
             text-align: center;
         }
 
         .section-title {
-            font-size: clamp(0.75rem, 1vh, 0.82rem);
+            font-size: clamp(0.78rem, 1.05vh, 0.85rem);
             font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 1px;
             color: var(--text-heading) !important;
-            margin-bottom: 4px;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-            padding-bottom: 2px;
+            margin-bottom: 8px;
+            border-bottom: 1.5px solid rgba(0, 0, 0, 0.1);
+            padding-bottom: 4px;
         }
 
         .sidebar-block {
-            margin-bottom: 4px;
+            margin-bottom: 8px;
         }
 
         .sidebar-block:last-child {
@@ -166,72 +168,73 @@
         }
 
         .sidebar-block h4 {
-            font-size: clamp(0.78rem, 1.05vh, 0.84rem);
+            font-size: clamp(0.8rem, 1.1vh, 0.88rem);
             font-weight: 700;
             color: var(--text-heading) !important;
         }
 
         .sidebar-block p {
-            font-size: clamp(0.72rem, 0.95vh, 0.78rem);
+            font-size: clamp(0.75rem, 1vh, 0.8rem);
             color: var(--text-body) !important;
             font-weight: 600;
-            line-height: 1.25;
+            line-height: 1.35;
+            margin-top: 2px;
         }
 
         .skills-list {
             list-style: none;
             display: flex;
             flex-direction: column;
-            gap: clamp(3px, 0.6vh, 5px);
+            gap: clamp(5px, 0.8vh, 7px);
         }
 
         .skills-list li {
             display: flex;
             align-items: center;
-            gap: 8px;
-            font-size: clamp(0.75rem, 1vh, 0.81rem);
+            gap: 10px;
+            font-size: clamp(0.78rem, 1.05vh, 0.85rem);
             font-weight: 700;
             color: var(--text-heading) !important;
         }
 
         .skills-list li i {
-            width: 14px;
-            font-size: 0.82rem;
+            width: 16px;
+            font-size: 0.9rem;
             color: var(--text-heading) !important;
             text-align: center;
         }
 
         .language-text {
-            font-size: clamp(0.75rem, 1vh, 0.81rem);
+            font-size: clamp(0.78rem, 1.05vh, 0.85rem);
             font-weight: 700;
             color: var(--text-heading) !important;
-            line-height: 1.35;
+            line-height: 1.5;
         }
 
         /* Right Main Panel */
         .main-panel {
             grid-area: main;
-            justify-content: space-between;
-            gap: clamp(10px, 1.5vh, 16px);
+            justify-content: flex-start; /* Fixed spacing issue */
+            gap: clamp(16px, 2.5vh, 24px);
         }
 
         .content-section h2 {
-            font-size: clamp(1.05rem, 1.5vh, 1.2rem);
+            font-size: clamp(1.15rem, 1.6vh, 1.35rem);
             font-weight: 800;
             color: var(--text-heading) !important;
-            margin-bottom: 4px;
+            margin-bottom: 8px;
             letter-spacing: -0.2px;
         }
 
         .content-section p {
-            font-size: clamp(0.78rem, 1.05vh, 0.83rem);
-            line-height: 1.38;
+            font-size: clamp(0.82rem, 1.1vh, 0.88rem);
+            line-height: 1.5;
             color: var(--text-body) !important;
             font-weight: 600;
         }
 
         .experience-item {
-            margin-bottom: clamp(6px, 1vh, 10px);
+            margin-bottom: clamp(12px, 1.8vh, 16px);
         }
 
         .experience-item:last-child {
@@ -239,15 +242,15 @@
         }
 
         .experience-item h3 {
-            font-size: clamp(0.84rem, 1.15vh, 0.9rem);
+            font-size: clamp(0.88rem, 1.2vh, 0.95rem);
             font-weight: 800;
             color: var(--text-heading) !important;
-            margin-bottom: 2px;
+            margin-bottom: 4px;
         }
 
         .experience-item p {
-            font-size: clamp(0.76rem, 1vh, 0.81rem);
-            line-height: 1.35;
+            font-size: clamp(0.8rem, 1.1vh, 0.85rem);
+            line-height: 1.45;
             color: var(--text-body) !important;
             font-weight: 600;
         }
@@ -257,7 +260,7 @@
             position: fixed;
             bottom: 16px;
             right: 16px;
-            padding: 8px 16px;
+            padding: 10px 18px;
             background: rgba(255, 255, 255, 0.85) !important;
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
@@ -265,7 +268,7 @@
             border: 1.5px solid rgba(255, 255, 255, 0.95);
             border-radius: 50px;
             font-weight: 700;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             cursor: pointer;
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
             z-index: 9999;
@@ -288,7 +291,7 @@
             }
 
             body {
-                padding: 10px;
+                padding: 12px;
                 align-items: flex-start;
             }
 
@@ -299,7 +302,7 @@
                     "header"
                     "sidebar"
                     "main";
-                gap: 10px;
+                gap: 12px;
             }
 
             .header-panel {
@@ -348,11 +351,11 @@
                 <h3 class="section-title">EDUCATION</h3>
                 <div class="sidebar-block">
                     <h4>Grade 10 SEE</h4>
-                    <p>Tri-padma Vidyashram Sec. School | 2080</p>
+                    <p>Tri-padma Vidyashram Sec. School<br>2080</p>
                 </div>
                 <div class="sidebar-block">
                     <h4>+2 Science</h4>
-                    <p>Tri-padma Vidyashram Sec. School | 2081 - 2083</p>
+                    <p>Tri-padma Vidyashram Sec. School<br>2081 - 2083</p>
                 </div>
             </div>
 
@@ -372,7 +375,9 @@
             <div>
                 <h3 class="section-title">LANGUAGE</h3>
                 <div class="language-text">
-                    Nepali - Native &bull; English - Fluent &bull; Hindi - Fluent
+                    Nepali - Native<br>
+                    English - Fluent<br>
+                    Hindi - Fluent
                 </div>
             </div>
         </aside>
